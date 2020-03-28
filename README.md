@@ -21,7 +21,6 @@ MicroSocks by [rofl0r](https://github.com/rofl0r/microsocks). Binaries built fro
          * [Changing Parameters of a Running Container](#changing-parameters-of-a-running-container)
       * [Docker Compose File](#docker-compose-file)
       * [Docker Image Update](#docker-image-update)
-      * [User/Group IDs](#usergroup-ids)
       * [Support or Contact](#support-or-contact)
 
 ## Quick Start
@@ -34,8 +33,7 @@ Launch the microsocks docker container with the following command:
 docker run -d \
     --name=microsocks \
     -p 1080:1080 \
-    shawly/microsocks \
-    -u user -P password
+    shawly/microsocks
 ```
 
 ## Usage
@@ -45,8 +43,7 @@ docker run [-d] \
     --name=microsocks \
     [-e <VARIABLE_NAME>=<VALUE>]... \
     [-p <HOST_PORT>:<CONTAINER_PORT>]... \
-    shawly/microsocks \
-    [optional microsocks arguments]
+    shawly/microsocks
 ```
 | Parameter | Description |
 |-----------|-------------|
@@ -113,9 +110,6 @@ services:
       - TZ: Europe/Berlin
     ports:
       - "1080:1080"
-    # to add arguments uncomment the line below and adjust, do not use -p port, let docker handle ports otherwise health check will fail
-    # -i and -b might be useful if you connect the container to multiple networks
-    # command: -1 -i listenip -u user -P password -b bindip
 ```
 
 ## Docker Image Update
@@ -136,31 +130,6 @@ docker stop microsocks
 docker rm microsocks
 ```
   4. Start the container using the `docker run` command.
-
-## User/Group IDs
-
-When using data volumes (`-v` flags), permissions issues can occur between the
-host and the container.  For example, the user within the container may not
-exists on the host.  This could prevent the host from properly accessing files
-and folders on the shared volume.
-
-To avoid any problem, you can specify the user the application should run as.
-
-This is done by passing the user ID and group ID to the container via the
-`USER_ID` and `GROUP_ID` environment variables.
-
-To find the right IDs to use, issue the following command on the host, with the
-user owning the data volume on the host:
-
-    id <username>
-
-Which gives an output like this one:
-```
-uid=1000(myuser) gid=1000(myuser) groups=1000(myuser),4(adm),24(cdrom),27(sudo),46(plugdev),113(lpadmin)
-```
-
-The value of `uid` (user ID) and `gid` (group ID) are the ones that you should
-be given the container.
 
 ## Support or Contact
 

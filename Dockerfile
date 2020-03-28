@@ -93,7 +93,7 @@ HEALTHCHECK --interval=5m --timeout=10s \
 LABEL \
       org.label-schema.name="MicroSocks" \
       org.label-schema.description="Docker container for MicroSocks" \
-      org.label-schema.version="unknown" \
+      org.label-schema.version="1.0.1" \
       org.label-schema.vcs-url="https://github.com/shawly/docker-microsocks" \
       org.label-schema.schema-version="1.0"
 
