@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Build script for Docker Automated Build.
+#
+
+set -e # Exit immediately if a command exits with a non-zero status.
+set -u # Treat unset variables as an error.
+
+# Start the docker container build.
+docker build -t $IMAGE_NAME .
