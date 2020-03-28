@@ -4,8 +4,10 @@ services:
   microsocks:
     image: shawly/microsocks
     restart: unless-stopped
+    environment:
+      - TZ: Europe/Berlin
     ports:
       - "${MICROSOCKS_PORT:-1080}:1080"
-    # to add arguments uncomment the line below and adjust, do not use -p port, let docker handle ports
+    # to add arguments uncomment the line below and adjust, do not use -p port, let docker handle ports otherwise health check will fail
     # -i and -b might be useful if you connect the container to multiple networks
     # command: -1 -i listenip -u user -P password -b bindip
