@@ -13,7 +13,7 @@ ARG MICROSOCKS_BRANCH=v1.0.2
 ARG MICROSOCKS_URL=${MICROSOCKS_REPO}/archive/${MICROSOCKS_BRANCH}.tar.gz
 
 # Build microsocks
-FROM alpine:${ALPINE_VERSION} as builder
+FROM alpine:${ALPINE_VERSION} as BIN_BUILDER
 
 ARG MICROSOCKS_REPO
 ARG MICROSOCKS_BRANCH
@@ -43,13 +43,13 @@ RUN \
     mkdir -p /tmp/microsocks-bin && \
     cp -v /tmp/microsocks /tmp/microsocks-bin
 
-# Runtime container
-FROM alpine:${ALPINE_VERSION}
+# Runtime environment builder
+FROM alpine:${ALPINE_VERSION} as RUNTIME_BUILDER
 
 # Copy binary from build container.
-COPY --from=builder /tmp/microsocks-bin/microsocks /usr/local/bin/microsocks
+COPY --from=BIN_BUILDER /tmp/microsocks-bin/microsocks /usr/local/bin/microsocks
 
-# Install runtime deps and add users.
+# Install runtime deps and create users.
 RUN \
   echo "Installing runtime dependencies..." && \
   apk add --no-cache \
@@ -59,9 +59,16 @@ RUN \
     usermod -G users microsocks && \
     mkdir -p /var/log/microsocks && \
     chown -R nobody:nogroup /var/log/microsocks && \
-  apk del shadow && \
+  echo "Remove APK & shadow" && \
+    apk del shadow apk-tools && \
   echo "Cleaning up temp directory..." && \
     rm -rf /tmp/*
+
+# Copy the files from the above into a new from-scratch image, to lose the history left
+# in the base Alpine image, and pull us down to <2MB
+FROM scratch
+
+COPY --from=RUNTIME_BUILDER / /
 
 EXPOSE 1080
 
