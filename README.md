@@ -14,6 +14,8 @@ To run this:
 docker run -d --name=httptoolkit-docker-tunnel -p 127.0.0.1:1080:1080 httptoolkit/docker-socks-tunnel
 ```
 
+(Available from both [Docker Hub](https://hub.docker.com/r/httptoolkit/docker-socks-tunnel/) and the [GitHub Container Registry](https://github.com/httptoolkit/docker-socks-tunnel/pkgs/container/docker-socks-tunnel))
+
 This will connect port 1080 on the host to the SOCKS5 proxy in the container. Traffic can be proxied through this port to reach any container on the same network as the tunnel container.
 
 SOCKS5H must be used, resolving domain names within the tunnel, not beforehand, unless you have a DNS configuration that can resolve Docker container names externally.
