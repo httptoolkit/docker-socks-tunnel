@@ -1,4 +1,4 @@
-# Docker SOCKS Tunnel
+# Docker SOCKS Tunnel ![Docker Image Version](https://img.shields.io/docker/v/httptoolkit/docker-socks-tunnel?sort=semver) ![Docker Image Size](https://img.shields.io/docker/image-size/httptoolkit/docker-socks-tunnel?sort=semver) [![Build Status](https://github.com/httptoolkit/docker-socks-tunnel/workflows/CI/badge.svg)](https://github.com/httptoolkit/mockttp/actions)
 
 > _Part of [HTTP Toolkit](https://httptoolkit.tech): powerful tools for building, testing & debugging HTTP(S)_
 
@@ -6,7 +6,7 @@ This is a minimal Docker container for MicroSocks, a multithreaded, small, effic
 
 This is intended to be used internally by HTTP Toolkit, to tunnel traffic into Docker networks, especially in environments (Windows & Mac) where host to container connectivity is not usually available.
 
-The container itself uses [Microsocks](https://github.com/rofl0r/microsocks) to provide a small & lightweight SOCKS5 proxy, and is designed to be as small as reasonably possible on top of that base: currently 5.7MB on disk, or approx 2.5MB when compressed for download.
+The container itself uses [Microsocks](https://github.com/rofl0r/microsocks) to provide a small & lightweight SOCKS5 proxy, and is designed to be as small as reasonably possible on top of that base: currently 1.8MB on disk, or <1MB when compressed for download.
 
 To run this:
 
