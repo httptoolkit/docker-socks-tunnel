@@ -11,7 +11,7 @@ The container itself uses [Microsocks](https://github.com/rofl0r/microsocks) to 
 To run this:
 
 ```
-docker run -d --name=httptoolkit-docker-tunnel -p 127.0.0.1:1080:1080 httptoolkit/docker-socks-tunnel
+docker run -d --name=httptoolkit-docker-tunnel -p 127.0.0.1:1080:1080 ghcr.io/httptoolkit/docker-socks-tunnel
 ```
 
 (Available from both [Docker Hub](https://hub.docker.com/r/httptoolkit/docker-socks-tunnel/) and the [GitHub Container Registry](https://github.com/httptoolkit/docker-socks-tunnel/pkgs/container/docker-socks-tunnel))
