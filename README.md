@@ -1,4 +1,4 @@
-# Docker SOCKS Tunnel ![Docker Image Version](https://img.shields.io/docker/v/httptoolkit/docker-socks-tunnel?sort=semver) ![Docker Image Size](https://img.shields.io/docker/image-size/httptoolkit/docker-socks-tunnel?sort=semver) [![Build Status](https://github.com/httptoolkit/docker-socks-tunnel/workflows/CI/badge.svg)](https://github.com/httptoolkit/mockttp/actions)
+# Docker SOCKS Tunnel [![Pull from GitHub Container Registry](https://img.shields.io/badge/Pull%20from-GHCR-%23333)](https://ghcr.io/httptoolkit/docker-socks-tunnel) [![Pull from Docker Hub](https://img.shields.io/badge/Pull%20from-Docker%20Hub-0db7ed)](https://hub.docker.com/r/httptoolkit/docker-socks-tunnel) [![Docker Image Size](https://img.shields.io/docker/image-size/httptoolkit/docker-socks-tunnel?sort=semver)](https://hub.docker.com/r/httptoolkit/docker-socks-tunnel/) [![Build Status](https://github.com/httptoolkit/docker-socks-tunnel/workflows/CI/badge.svg)](https://github.com/httptoolkit/mockttp/actions)
 
 > _Part of [HTTP Toolkit](https://httptoolkit.tech): powerful tools for building, testing & debugging HTTP(S)_
 
