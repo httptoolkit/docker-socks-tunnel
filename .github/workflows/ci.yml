@@ -24,12 +24,22 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Login to Scaleway Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: rg.nl-ams.scw.cloud/httptoolkit
+          username: nologin
+          password: ${{ secrets.SCW_REGISTRY_KEY }}
+
       - name: Extract Docker metadata
         id: meta
         uses: docker/metadata-action@v3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          images: httptoolkit/docker-socks-tunnel,ghcr.io/httptoolkit/docker-socks-tunnel
+          images: |
+            httptoolkit/docker-socks-tunnel
+            ghcr.io/httptoolkit/docker-socks-tunnel
+            rg.nl-ams.scw.cloud/httptoolkit/docker-socks-tunnel
 
       - uses: docker/build-push-action@v2
         with:
