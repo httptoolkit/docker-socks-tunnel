@@ -5,11 +5,11 @@
 #
 
 # Set alpine version
-ARG ALPINE_VERSION=3.11
+ARG ALPINE_VERSION=3.22.1
 
 # Set microsocks vars
 ARG MICROSOCKS_REPO=https://github.com/rofl0r/microsocks
-ARG MICROSOCKS_BRANCH=v1.0.2
+ARG MICROSOCKS_BRANCH=v1.0.5
 ARG MICROSOCKS_URL=${MICROSOCKS_REPO}/archive/${MICROSOCKS_BRANCH}.tar.gz
 
 # Build microsocks
